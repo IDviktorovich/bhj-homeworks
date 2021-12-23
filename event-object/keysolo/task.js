@@ -17,9 +17,10 @@ class Game {
   }
 
   registerEvents() {
-    let letter = this.currentSymbol.textContent;
-    
-    const callback = (event) => event.key === letter ? this.success() : this.fail();
+    const callback = (event) => {
+      const letter = this.currentSymbol.textContent;
+      event.key === letter ? this.success() : this.fail();
+    };
     
     document.addEventListener('keydown', callback);
     
