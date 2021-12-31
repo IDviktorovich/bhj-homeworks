@@ -4,12 +4,13 @@ const taskInput = document.getElementById('task__input');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    taskList.insertAdjacentHTML("beforeend", `<div class="task">
+    if (taskInput.value.trim().length > 0) {
+      taskList.insertAdjacentHTML("beforeend", `<div class="task">
     <div class="task__title">
       ${taskInput.value}
     </div>
     <a href="#" class="task__remove">&times;</a>
-  </div>`);
+    </div>`);
 
     let tasks = document.querySelectorAll('.task');
 
@@ -20,5 +21,6 @@ form.addEventListener('submit', (event) => {
     taskClose.addEventListener('click', () => {
         lastTask.remove();
     })
+  }  
 })
 
